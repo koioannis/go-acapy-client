@@ -87,21 +87,16 @@ type PresentationProposalMap struct {
 
 // TODO
 type RequestedProof struct {
-	RevealedAttrs      struct{}                `json:"revealed_attrs"`
-	RevealedAttrGroups map[string]RevealedAttr `json:"revealed_attr_groups"`
-	SelfAttestedAttrs  struct{}                `json:"self_attested_attrs"`
-	UnrevealedAttrs    struct{}                `json:"unrevealed_attrs"`
-	Predicates         struct{}                `json:"predicates"`
+	RevealedAttrs     map[string]RevealedAttr `json:"revealed_attrs"`
+	SelfAttestedAttrs struct{}                `json:"self_attested_attrs"`
+	UnrevealedAttrs   struct{}                `json:"unrevealed_attrs"`
+	Predicates        struct{}                `json:"predicates"`
 }
 
 type RevealedAttr struct {
-	SubProofIndex int `json:"sub_proof_index"`
-	Values        struct {
-		Name struct {
-			Raw     string `json:"raw"`
-			Encoded string `json:"encoded"`
-		} `json:"name"`
-	} `json:"values"`
+	Raw           string `json:"raw"`
+	SubProofIndex int    `json:"sub_proof_index"`
+	Encoded       string `json:"encoded"`
 }
 
 type Presentation struct {
