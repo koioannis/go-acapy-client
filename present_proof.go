@@ -243,7 +243,7 @@ type RequestedPredicate struct {
 	Names        []string       `json:"names,omitempty"` // XOR with Name | Requires non-empty restrictions
 	PType        PredicateType  `json:"p_type"`
 	PValue       int            `json:"p_value"`
-	NonRevoked   NonRevoked     `json:"non_revoked"` // Optional
+	NonRevoked   NonRevoked     `json:"non_revoked,omitempy"` // Optional
 }
 
 func NewRequestedAttribute(
@@ -274,10 +274,10 @@ func NewRequestedAttribute(
 }
 
 type RequestedAttribute struct {
-	Restrictions []Restrictions `json:"restrictions"`    // Required when using Names, otherwise empty slice instead of nil
-	Name         string         `json:"name,omitempty"`  // XOR with Names
-	Names        []string       `json:"names,omitempty"` // XOR with Name | Requires non-empty restrictions
-	NonRevoked   NonRevoked     `json:"non_revoked"`     // Optional
+	Restrictions []Restrictions `json:"restrictions"`         // Required when using Names, otherwise empty slice instead of nil
+	Name         string         `json:"name,omitempty"`       // XOR with Names
+	Names        []string       `json:"names,omitempty"`      // XOR with Name | Requires non-empty restrictions
+	NonRevoked   NonRevoked     `json:"non_revoked,omitempy"` // Optional
 }
 
 func NewProofRequest(
