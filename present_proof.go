@@ -311,7 +311,7 @@ type ProofRequest struct {
 
 type PresentationProofAttribute struct {
 	Revealed     bool   `json:"revealed"`
-	Timestamp    int64  `json:"timestamp"`
+	Timestamp    int64  `json:"timestamp,omitempty"`
 	CredentialID string `json:"cred_id"` // referent?
 }
 
