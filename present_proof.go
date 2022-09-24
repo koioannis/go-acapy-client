@@ -470,6 +470,14 @@ func (c *Client) GetPresentationCredentialsByID(presentationExchangeID string, c
 	return result, nil
 }
 
+func (c *Client) SendPresentationProblemReportForID(presentationExchangeID string, description string) error {
+	request := struct {
+		Description string `json:"description"`
+	}{description}
+
+	return c.post(fmt.Sprintf("/present-proof/records/%s/problem-report", presentationExchangeID), nil, &request, nil)
+}
+
 func (c *Client) RemovePresentationExchangeByID(presentationExchangeID string) error {
 	return c.delete(fmt.Sprintf("/present-proof/records/%s", presentationExchangeID))
 }
